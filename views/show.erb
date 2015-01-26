@@ -1,0 +1,36 @@
+<html>
+<body>
+  <header>
+    <h1>Hogwart's Student Registry</h1>
+    <a href="/students">Main Menu</a>
+  </header>
+
+  <h3>Student Record</h3>
+    <p><%= this_student[:name] %>:</p>
+      <ul>
+        <li>Age: <%= this_student[:age] %></li>
+        <li>Favorite Spell: <%= this_student[:favorite_spell] %></li>
+        <li>Student ID: <%= this_student[:id] %></li>
+      </ul>
+
+
+
+
+
+  <h3>Change <%= this_student[:name] %>'s record here:</h3>
+  <form action="/student/<%= this_student[:id] %>" method="post">
+    <input type="hidden" name="_method" value="put">
+    <input type="text" name="newname" placeholder="name"><br />
+    <input type="text" name="newage" placeholder="age"><br />
+    <input type="text" name="newspell" placeholder="favorite spell"><br />
+    <button>UPDATE</button>
+  </form>
+
+  <p><%= this_student[:name] %>'s record can be removed here:</p>
+  <form action="/student/<%= this_student[:id] %>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <button>DELETE</button>
+  </form>
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+<html>
+<body>
+  <header>
+    <h1>Hogwart's Student Registry</h1>
+  </header>
+
+  <h3>Add a new student:</h3>
+  <form action="/student" method="post">
+    <input type="text" name="name" placeholder= "name" required><br />
+    <input type="text" name="age" placeholder="age" required><br />
+    <input type="text" name="favorite_spell" placeholder="favorite spell" required>
+    <br />
+    <button>SUBMIT</button>
+  </form>
+
+
+
+  <h3>This is a list of all enrolled students:</h3>
+  <ul>
+    <% students.each do |key,student| %>
+    <li><%= student[:name] %>:
+      <ul>
+        <li>Age: <%= student[:age] %></li>
+        <li>Favorite Spell: <%= student[:favorite_spell] %></li>
+        <li>Student ID: <a href="/student/<%= student[:id] %>"><%= student[:id] %></a></li>
+      </ul>
+    </li>
+    <% end %>
+  </ul>
+
+
+
+</body>
+</html>
